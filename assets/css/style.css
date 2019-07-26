@@ -2,17 +2,46 @@
   text-align: center;
 }
 
-
-
 .image {
   float: left;
-  
 }
 
-.but{
-    margin: 7px;
+.but {
+  margin: 7px;
 }
 
-.card{
-    height: 100%;
+body {
+  background-size: 20%;
+}
+
+#mainbox {
+  margin: 20px 0px 20px 0px;
+}
+
+#right,
+#buttonscard {
+  min-height: 100%;
+}
+
+#right {
+  display: inline;
+}
+.card {
+  background: rgba(255, 255, 255, 0.932);
+}
+
+.but {
+  background: linear-gradient(#ffff, rgb(245, 245, 208));
+}
+
+#button-add {
+  background: rgb(221, 220, 220);
+}
+
+.input-group {
+  margin: 0 !important;
+}
+
+.but:hover{
+    background: #6C757A;
 }
