@@ -1,8 +1,10 @@
 $(document).ready(function() {
-  var buttonsarray = ["sad", "angry", "happy", "mad"];
+  var buttonsarray = ["sad", "angry", "happy", "mad","aa","bb","cc","dd"];
 
   /////////////a click button > going API > showing img and rating
   function buttonsclick() {
+
+    $("#right").empty();
     queryURL =
       "https://api.giphy.com/v1/gifs/search?api_key=ejByJgCwq5JnuHGK49TUEVRB5lh5wQx4&q=" +
       $(this).attr("data-name") +
@@ -14,9 +16,10 @@ $(document).ready(function() {
     }).then(function(response) {
       console.log(response); //////////////////////////////////////////
       var imgarray = response.data;
-      var imgdiv = $("<div class='image'>");
+      
 
       for (let i = 0; i < imgarray.length; i++) {
+        var imgdiv = $("<div class='image'>");
         var rating = imgarray[i].rating;
         var p = $("<p>").text("Rating: " + rating);
         imgdiv.append(p);
@@ -40,7 +43,7 @@ $(document).ready(function() {
     $("#ul-buttons").empty();
     for (let i = 0; i < buttonsarray.length; i++) {
       var newb = $(
-        "<li type='button' class='but list-group-item btn btn-light'>"
+        "<button type='button' class='but btn btn-outline-secondary'>"
       ).html(buttonsarray[i]);
       newb.attr("data-name", buttonsarray[i]);
 
