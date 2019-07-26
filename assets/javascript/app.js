@@ -1,8 +1,5 @@
 $(document).ready(function() {
   var buttonsarray = ["sad", "angry", "happy", "mad"];
-  
-
-
 
   /////////////a click button > going API > showing img and rating
   function buttonsclick() {
@@ -24,7 +21,6 @@ $(document).ready(function() {
       var imgdiv = $("<div class='image'>");
 
       for (let i = 0; i < imgarray.length; i++) {
-        
         var rating = imgarray[i].rating;
         var p = $("<p>").text("Rating: " + rating);
         imgdiv.append(p);
@@ -37,7 +33,7 @@ $(document).ready(function() {
       }
     });
   }
-  
+
   //////////////Showing buttons from the buttonsarray
   function renderButtons() {
     $("#ul-buttons").empty();
@@ -52,7 +48,7 @@ $(document).ready(function() {
   }
 
   $("#button-add").on("click", function() {
-      /////////////falta validar///////////////////////////////
+    /////////////falta validar///////////////////////////////
     buttonsarray.push(
       $("#textbox")
         .val()
@@ -61,8 +57,6 @@ $(document).ready(function() {
     renderButtons();
     $("#textbox").val("");
   });
-
-
 
   $(document).on("click", ".but", buttonsclick);
 
