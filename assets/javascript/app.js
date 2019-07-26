@@ -1,9 +1,8 @@
 $(document).ready(function() {
-  var buttonsarray = ["sad", "angry", "happy", "mad","aa","bb","cc","dd"];
+  var buttonsarray = ["sad", "angry", "happy", "mad", "aa", "bb", "cc", "dd"];
 
   /////////////a click button > going API > showing img and rating
   function buttonsclick() {
-
     $("#right").empty();
     queryURL =
       "https://api.giphy.com/v1/gifs/search?api_key=ejByJgCwq5JnuHGK49TUEVRB5lh5wQx4&q=" +
@@ -16,7 +15,6 @@ $(document).ready(function() {
     }).then(function(response) {
       console.log(response); //////////////////////////////////////////
       var imgarray = response.data;
-      
 
       for (let i = 0; i < imgarray.length; i++) {
         var imgdiv = $("<div class='image'>");

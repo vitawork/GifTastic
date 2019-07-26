@@ -4,6 +4,21 @@
 
 .image {
   float: left;
+  position: relative;
+}
+
+p {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  margin-bottom: 0;
+  padding: 0px 13px 4px 13px;
+
+  background: radial-gradient(
+    rgb(212, 199, 199) 50%,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 .but {
@@ -42,6 +57,14 @@ body {
   margin: 0 !important;
 }
 
-.but:hover{
-    background: #6C757A;
+.but:hover {
+  background: #6c757a;
+}
+
+.gif, p {
+  cursor: pointer;
+}
+
+.gif:hover {
+  opacity: 0.5;
 }
