@@ -4,6 +4,11 @@ $(document).ready(function() {
   /////////////a click button > going API > showing img and rating
   function buttonsclick() {
     $("#error").text("");
+    $("#textbox").val("");
+    $("body").css({
+      "background-image": "url('assets/images/white_wall.png')",
+      "background-size": "10%"
+    });
     $("#right").empty();
     queryURL =
       "https://api.giphy.com/v1/gifs/search?api_key=ejByJgCwq5JnuHGK49TUEVRB5lh5wQx4&q=" +
@@ -52,6 +57,7 @@ $(document).ready(function() {
   ///////////////pausing gif
   $(document).on("click", ".gif", function() {
     $("#error").text("");
+    $("#textbox").val("");
     var state = $(this).attr("data-state");
     if (state === "still") {
       $(this).attr("src", $(this).attr("data-animate"));
@@ -63,7 +69,6 @@ $(document).ready(function() {
   });
 
   $("#button-add").on("click", function() {
-    /////////////tratar de hacer una funcion para ajax///////////////////////////////
     $("#error").text("");
     queryURL =
       "https://api.giphy.com/v1/gifs/search?api_key=ejByJgCwq5JnuHGK49TUEVRB5lh5wQx4&q=" +

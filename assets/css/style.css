@@ -33,6 +33,7 @@ p {
 
 body {
   height: 100%;
+  background-size: 50%;
 }
 
 #mainbox {
@@ -59,7 +60,7 @@ body {
 .but {
   background: linear-gradient(
     to bottom right,
-    rgb(37, 142, 255),
+    rgb(23, 110, 204),
     rgb(18, 208, 230)
   );
   margin: 10px 20px 10px 20px;
@@ -124,4 +125,8 @@ h1 {
   background-clip: text;
   font-family: "Permanent Marker", cursive;
   font-size: 340%;
+}
+
+h5 {
+  color: #808486;
 }
