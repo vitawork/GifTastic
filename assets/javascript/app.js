@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var buttonsarray = ["sad", "angry", "happy", "mad", "aa", "bb", "cc", "dd"];
+  var topics = ["sad", "angry", "happy", "mad", "aa", "bb", "cc", "dd"];
 
   /////////////a click button > going API > showing img and rating
   function buttonsclick() {
@@ -22,13 +22,13 @@ $(document).ready(function() {
         var p = $("<p>").text("Rating: " + rating);
         imgdiv.append(p);
 
-        var imgURL = imgarray[i].images.original_still.url;
+        var imgURL = imgarray[i].images.fixed_width_still.url;
         var image = $("<img data-state='still' class='gif'>").attr(
           "src",
           imgURL
         );
         image.attr("data-still", imgURL);
-        image.attr("data-animate", imgarray[i].images.original.url);
+        image.attr("data-animate", imgarray[i].images.fixed_width.url);
         imgdiv.append(image);
 
         $("#right").prepend(imgdiv);
@@ -36,14 +36,14 @@ $(document).ready(function() {
     });
   }
 
-  //////////////Showing buttons from the buttonsarray
+  //////////////Showing buttons from the topics
   function renderButtons() {
     $("#ul-buttons").empty();
-    for (let i = 0; i < buttonsarray.length; i++) {
+    for (let i = 0; i < topics.length; i++) {
       var newb = $(
         "<button type='button' class='but btn btn-outline-secondary'>"
-      ).html(buttonsarray[i]);
-      newb.attr("data-name", buttonsarray[i]);
+      ).html(topics[i]);
+      newb.attr("data-name", topics[i]);
 
       $("#ul-buttons").prepend(newb);
     }
@@ -85,7 +85,7 @@ $(document).ready(function() {
           .val()
           .trim() !== ""
       ) {
-        buttonsarray.push(
+        topics.push(
           $("#textbox")
             .val()
             .trim()
