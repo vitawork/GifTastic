@@ -18,21 +18,27 @@
       media="screen"
       href="assets/css/style.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body background="assets/images/big background.jpg">
+  <body background="assets/images/crossline-lines.png">
     <div class="container-fluid">
       <div class="row" id="mainbox">
         <div id="left" class="col-xs-12 col-sm-3">
-          <div  id="buttonscard">
+          <div id="buttonscard">
+            <h1>GifTastic</h1>
             <div class="card-header">
               <!-- begin -->
+              <h5 id="error"></h5>
               <div class="input-group mb-3">
                 <input
                   type="text"
                   id="textbox"
                   class="form-control"
-                  placeholder="Add a new button"
-                  aria-label="Add a new button"
+                  placeholder="New emotion"
+                  aria-label="New emotion"
                   aria-describedby="button-add"
                 />
                 <div class="input-group-append">
@@ -52,12 +58,14 @@
             </ul>
           </div>
         </div>
-        <div id="right" class="card col-xs-12 col-sm-9">
-          <!-- llenar -->
+        <div id="right1" class="col-xs-12 col-sm-9">
+          <div id="right">
+            <!-- llenar -->
+          </div>
         </div>
       </div>
     </div>
- 
+
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"

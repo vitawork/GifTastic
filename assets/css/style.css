@@ -1,12 +1,14 @@
 * {
   text-align: center;
-  /* margin: 0;
-  padding: 0; */
 }
 
-.container-fluid{
-    height: 100%;
-    padding-left: 0;
+html {
+  height: 100%;
+}
+
+.container-fluid {
+  height: 100%;
+  padding: 0;
 }
 
 .image {
@@ -29,38 +31,38 @@ p {
   );
 }
 
-.but {
-  margin: 7px;
-}
-
 body {
-  background-size: 20%;
   height: 100%;
 }
 
 #mainbox {
-  /* margin: 20px 0px 20px 0px; */
+  margin: 0px;
   height: 100%;
 }
 
-#right,
-#buttonscard {
-  min-height: 100%;
+#right1 {
+  padding: 0;
 }
 
 #right {
-  display: inline;
+  display: block;
   padding: 15px;
-  margin-top: 10px;
-  width: 50%;
-  
+  margin: 15px;
+  height: 96%;
 }
-.card {
-  background: rgba(255, 255, 255, 0.932);
+
+#left {
+  padding: 0;
+  background: #000000;
 }
 
 .but {
-  background: linear-gradient(#ffff, rgb(245, 245, 208));
+  background: linear-gradient(
+    to bottom right,
+    rgb(37, 142, 255),
+    rgb(18, 208, 230)
+  );
+  margin: 10px 20px 10px 20px;
 }
 
 #button-add {
@@ -75,10 +77,51 @@ body {
   background: #6c757a;
 }
 
-.gif, p {
+.gif,
+p {
   cursor: pointer;
 }
 
 .gif:hover {
   opacity: 0.7;
+}
+
+.card-header {
+  padding: 25px 20px 30px 20px;
+}
+
+h1 {
+  margin-top: 20px;
+
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, #f22),
+    color-stop(0.15, #f2f),
+    color-stop(0.3, #22f),
+    color-stop(0.45, #2ff),
+    color-stop(0.6, #2f2),
+    color-stop(0.75, #2f2),
+    color-stop(0.9, #ff2),
+    color-stop(1, #f22)
+  );
+  background-image: gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, #f22),
+    color-stop(0.15, #f2f),
+    color-stop(0.3, #22f),
+    color-stop(0.45, #2ff),
+    color-stop(0.6, #2f2),
+    color-stop(0.75, #2f2),
+    color-stop(0.9, #ff2),
+    color-stop(1, #f22)
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: "Permanent Marker", cursive;
+  font-size: 340%;
 }

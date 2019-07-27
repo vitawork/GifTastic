@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  var topics = ["sad", "angry", "happy", "mad", "aa", "bb", "cc", "dd"];
+  var topics = ["Sadness", "Anger", "Disgust", "Happiness", "Surprise", "Joy"];
 
   /////////////a click button > going API > showing img and rating
   function buttonsclick() {
+    $("#error").text("");
     $("#right").empty();
     queryURL =
       "https://api.giphy.com/v1/gifs/search?api_key=ejByJgCwq5JnuHGK49TUEVRB5lh5wQx4&q=" +
@@ -13,7 +14,6 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log(response); //////////////////////////////////////////
       var imgarray = response.data;
 
       for (let i = 0; i < imgarray.length; i++) {
@@ -22,13 +22,13 @@ $(document).ready(function() {
         var p = $("<p>").text("Rating: " + rating);
         imgdiv.append(p);
 
-        var imgURL = imgarray[i].images.fixed_width_still.url;
+        var imgURL = imgarray[i].images.fixed_height_still.url;
         var image = $("<img data-state='still' class='gif'>").attr(
           "src",
           imgURL
         );
         image.attr("data-still", imgURL);
-        image.attr("data-animate", imgarray[i].images.fixed_width.url);
+        image.attr("data-animate", imgarray[i].images.fixed_height.url);
         imgdiv.append(image);
 
         $("#right").prepend(imgdiv);
@@ -40,9 +40,9 @@ $(document).ready(function() {
   function renderButtons() {
     $("#ul-buttons").empty();
     for (let i = 0; i < topics.length; i++) {
-      var newb = $(
-        "<button type='button' class='but btn btn-outline-secondary'>"
-      ).html(topics[i]);
+      var newb = $("<button type='button' class='but btn btn-primary'>").html(
+        topics[i]
+      );
       newb.attr("data-name", topics[i]);
 
       $("#ul-buttons").prepend(newb);
@@ -51,6 +51,7 @@ $(document).ready(function() {
 
   ///////////////pausing gif
   $(document).on("click", ".gif", function() {
+    $("#error").text("");
     var state = $(this).attr("data-state");
     if (state === "still") {
       $(this).attr("src", $(this).attr("data-animate"));
@@ -63,7 +64,7 @@ $(document).ready(function() {
 
   $("#button-add").on("click", function() {
     /////////////tratar de hacer una funcion para ajax///////////////////////////////
-
+    $("#error").text("");
     queryURL =
       "https://api.giphy.com/v1/gifs/search?api_key=ejByJgCwq5JnuHGK49TUEVRB5lh5wQx4&q=" +
       $("#textbox")
@@ -80,18 +81,23 @@ $(document).ready(function() {
         found = true;
       }
       if (
-        found &&
         $("#textbox")
           .val()
-          .trim() !== ""
+          .trim() == ""
       ) {
-        topics.push(
-          $("#textbox")
-            .val()
-            .trim()
-        );
-        renderButtons();
-        $("#textbox").val("");
+        $("#error").text("* You must to write an emotion");
+      } else {
+        if (!found) {
+          $("#error").text("* There is not gif for your emotion");
+        } else {
+          topics.push(
+            $("#textbox")
+              .val()
+              .trim()
+          );
+          renderButtons();
+          $("#textbox").val("");
+        }
       }
     });
   });
